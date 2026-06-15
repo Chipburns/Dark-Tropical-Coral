@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+  <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dark Tropical Coral</title>
+        <link rel="icon" href="image-1.png" type="image/png">
+        <meta name="author" content="Cadmipote & S.M.A">
+        <meta name="description" content="Panduan Pembelajaran Kode Bahasa Pemrograman Komputer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+          html, body {
+            min-height: 100%;
+            margin: 0;
+          }
+
+          body {
+            font-family: sans-serif;
+            background-color: #010201;
+            color: #E3EEEF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            line-height: 1.6;
+          }
+
+          @media (min-width: 1024px) {
+            body {
+              background-image: url('image-3.png'); 
+              background-attachment: fixed; 
+              background-size: cover;       
+              background-position: center;  
+              background-repeat: no-repeat; 
+            }
+          }
+
+          #container {
+            max-width: 850px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+          }
+
+          #flex {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+          }
+
+          header {
+            width: 100%;
+            height: auto; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            animation: fadeIn 0.6s ease;
+          }
+
+          .header-photo {
+            width: 100%;
+            height: auto; 
+            display: block;
+            object-fit: cover;
+            object-position: center;
+          }
+
+          .lang-menu {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            width: 100%; 
+            overflow-x: auto; 
+          }
+
+          .tab-btn {
+            flex: 1;
+            background-color: #171D1A;
+            background: linear-gradient(to bottom, #2C3731 10%, #171D1A 100%);
+            color: #7D9699;
+            border: 1px solid #26312B;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            white-space: nowrap;
+            text-align: center;
+            transition: 0.2s;
+            animation: fadeIn 0.4s ease;
+          }
+
+          .tab-btn:hover {
+            background-color: #1F2722;
+            color: #9CD3DC;
+          }
+
+          .tab-btn.active {
+            background: linear-gradient(to bottom, #92C4B7 10%, #28515C 100%);
+            color: #22393F;
+            border-radius: 4px;
+          }
+
+          .lang-content {
+            display: none;
+            background: linear-gradient(to bottom, #2C3731 0%, #0D100E 50%);
+            padding: 22px;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease;
+            border-radius: 6px;
+            border-top: 1px solid #152422;
+          }
+
+          .lang-content.active {
+            display: block;
+          }
+
+          .lang-content h3 {
+            margin: 0 0 5px 0;
+            color: #F3F6FF;
+            font-size: 1.4rem;
+          }
+
+          .section-sub {
+            color: #A9BF9B;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed #26312B;
+            padding-bottom: 3px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+          }
+          
+          .section-sub::before {
+            content: "•"; 
+            color: #26312B; 
+            margin-right: 12px; 
+            font-size: 1.3rem; 
+          }
+       
+          .section-sub::after {
+            content: "";
+            flex: 1;
+            margin-left: 10px;
+            border-bottom: 2px dashed #26312B;
+          }
+
+          main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+          }
+
+          .badge {
+            display: inline-block;
+            background-color: #26312B;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+          }
+
+          p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+          }
+
+          ul {
+            margin: 0 0 15px 0;
+            padding-left: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+          }
+
+          /* STYLE FOOTER MENGIKUTI CONTAINER */
+          footer {
+            background-color: #0D100E;   
+            width: 100%;
+            height: auto;
+            padding: 10px 10px;
+            text-align: center;
+            color: #495D57; 
+            font-size: 0.9rem;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            border-top: 1px solid #171D1A;
+          }
+
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          @media (max-width: 600px) {
+            .lang-menu {
+              flex-direction: column;
+              gap: 5px;
+            }
+            .tab-btn {
+              width: 100%;
+            }
+          }
+
+          .code-box-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #171D1A;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border: 1px solid #495D57;
+            border-bottom: none;
+          }
+
+          .lang-label {
+            color: #9AAE8B;
+          }
+
+          .ext-label {
+            color: #7D938D;
+          }
+
+          pre {
+            background-color: #0B0E0D;
+            padding: 14px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            color: #F0F9FF;
+            overflow-x: auto;
+            margin: 0 0 15px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid #212A25;
+          }
+
+          .pustaka-card {
+            background-color: #171D1A;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
+          }
+
+          .pustaka-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #FFFDFF;
+          }
+
+          .bg-python { background: linear-gradient(to bottom, #005F73 0%, #002034 100%); }
+          .bg-js     { background: linear-gradient(to bottom, #CA9B14 0%, #6A5602 100%); }
+          .bg-cpp    { background: linear-gradient(to bottom, #9B2226 0%, #3E0506 100%); }
+          .bg-java   { background: linear-gradient(to bottom, #AE2012 0%, #4F0401 100%); }
+          .bg-rust   { background: linear-gradient(to bottom, #0A9396 0%, #004E58 100%); }
+          .bg-assembly   { background: linear-gradient(to bottom, #4A4A4A 0%, #0E1315 100%); }
+          .bg-mccd   { background: linear-gradient(to bottom, #111111 0%, #010101 100%); }
+
+          .pustaka-header h4 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+          }
+
+          .pustaka-header .info-meta {
+            font-size: 0.8rem;
+            opacity: 0.9;
+          }
+
+          .badge-level {
+            background: conic-gradient(from 140deg, #0B0E0D, #222927, #0B0E0D);
+            color: #D4FAFF;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          .pustaka-body {
+            padding: 20px;
+          }
+
+          .label-sub {
+            color: #5096B1;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            letter-spacing: 0.8px;
+          }
+
+          .label-sub:first-child {
+            margin-top: 0;
+          }
+
+          .pustaka-desc {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+          }
+
+          .box-pustaka {
+            background-color: #101412;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: #94C1BC;
+            font-family: monospace;
+            font-size: 0.95rem;
+            border: 1px solid #212A25;
+            margin-bottom: 15px;
+          }
+
+          .link-repo {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-bottom: 1px dashed;
+          }
+
+          .link-repo:hover {
+            color: #A9DEE0;
+            border-bottom-color: #A9DEE0;
+          }
+
+            /* STYLE BARU UNTUK ALUR GIT & KONTRIBUSI */
+          .git-card {
+            background: linear-gradient(to bottom, #5D644A 0%, #343828 90%);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #223328;
+            border-left: 5px solid #889469; 
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+          }
+       
+          .step-number {
+            background-color: #9AB79F;
+            color: #212A25;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .step-body {
+            flex: 1;
+          }
+
+          .step-title {
+            font-weight: bold;
+            color: #9AB79F;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 6px;
+          }
+
+          .step-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #93ADA6;
+          }
+
+          /* GRID UNTUK TEMPAT BERBAGI LIBRARY */
+          .library-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+          }
+
+          .library-card {
+            background-color: #262014;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #383120;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+          }
+
+          .library-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          /* Gaya Gambar Logo di dalam Grid Library */
+          .library-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 2px;
+          }
+
+          .library-title {
+            font-weight: bold;
+            color: #A9BF9B;
+            font-size: 1rem;
+            text-decoration: none;
+          }
+
+          .library-title:hover {
+            text-decoration: underline;
+          }
+
+          .library-desc {
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.4;
+          }
+
+          /* KOTAK TIPS PRO */
+          .tips-box {
+            background-color: #262014;
+            border: 1px dashed #262014;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+          }
+
+          .tips-title {
+            color: #A9BF9B;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          @media (max-width: 600px) {
+              .library-grid {
+                  grid-template-columns: 1fr;
+              }
+              .git-step {
+                  flex-direction: column;
+                  gap: 10px;
+              }
+          }
+    
+     </style>
+    </head>
+    <body>
+        <div id="container">
+            <header id="header">
+              <img src="image-2.png" alt="Fix your device bro.." class="header-photo">
+          </header>
+          
+            <div id="flex">
+              <main>
+               <!-- MENU NAVIGASI UTAMA -->
+               <div class="lang-menu">
+                <button class="tab-btn active" onclick="bukaBahasa(event, 'kamus-inti')">Profil Bahasa</button>
+                <button class="tab-btn" onclick="bukaBahasa(event, 'tools-software')">Dukungan Tools</button>
+                <button class="tab-btn" onclick="bukaBahasa(event, 'ekosistem')">Ekosistem IT</button>
+                <button class="tab-btn" onclick="bukaBahasa(event, 'logika')">Logika Dasar</button>
+                <button class="tab-btn" onclick="bukaBahasa(event, 'git-github')">Git & Kontribusi</button>
+              </div>
+
+              <!-- KONTEN MODUL 1: KAMUS BAHASA INTI (DESAIN REFERENSI BARU DENGAN HELLO WORLD) -->
+              <div id="kamus-inti" class="lang-content active">
+                <h3>Sejarah & Profil Bahasa Pemrograman</h3>
+                <div class="badge" style="background-color: #26312B;">Eksplorasi & Ekosistem</div>
+                <p>Pelajari mengapa setiap bahasa diciptakan, kegunaan terbaiknya, serta ekosistem library dan contoh kode dasarnya.</p>
+  
+                <!-- 1. PYTHON CARD -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-python">
+                    <div>
+                      <h4>Python</h4>
+                      <span class="info-meta">Dibuat oleh Guido van Rossum (1991)</span>
+                    </div>
+                    <span class="badge-level">High Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan untuk mempermudah penulisan kode agar lebih manusiawi, mementingkan keterbacaan kode dibanding sintaksis yang rumit.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Kecerdasan Buatan (AI), Machine Learning, Analisis Data, Web Scraping, dan Scripting Otomatisasi.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Pip, PyTorch, Tensorflow, Pandas, Django</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">print("Hello World")</pre>
+      
+                    <a href="https://github.com/topics/python" target="_blank" class="link-repo" style="color: #005F73">Kunjungi Repositori Komunitas (GitHub) &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- 2. JAVASCRIPT CARD -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-js">
+                    <div>
+                      <h4>JavaScript</h4>
+                      <span class="info-meta">Dibuat oleh Brendan Eich (1995)</span>
+                    </div>
+                    <span class="badge-level">High Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan hanya dalam 10 hari untuk menambahkan interaksi dinamis pada browser internet yang awalnya sangat statis.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk)    :</div>
+                    <p class="pustaka-desc">Pengembangan Website Interaktif (Frontend), Aplikasi Web Server (Backend), Aplikasi Mobile (React Native).</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">NPM, React, Vue, Node.js, Express, Next.js</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">console.log("Hello World");</pre>
+      
+                    <a href="https://github.com/topics/javascript" target="_blank" class="link-repo" style="color: #CA9B14;">Kunjungi Repositori Komunitas (GitHub) &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- 3. JAVA CARD -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-java">
+                    <div>
+                      <h4>Java</h4>
+                      <span class="info-meta">Dibuat oleh James Gosling (1995)</span>
+                    </div>
+                    <span class="badge-level">High Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan dengan prinsip "Write Once, Run Anywhere" agar kode bisa berjalan di berbagai elemen elektronik rumah tangga tanpa kompilasi ulang.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Aplikasi Enterprise skala besar, Sistem Perbankan, Aplikasi Android lama/native, dan Big Data.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Maven, Spring Boot, Hibernate, Apache Hadoop</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}</pre>
+      
+                    <a href="https://github.com/topics/java" target="_blank" class="link-repo" style="color: #AE2012;">Kunjungi Repositori Komunitas (GitHub) &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- 4. RUST CARD -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-rust">
+                    <div>
+                      <h4>Rust</h4>
+                      <span class="info-meta">Dibuat oleh Graydon Hoare (2015)</span>
+                    </div>
+                    <span class="badge-level">Mid Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan untuk menggantikan C++ pada sistem kritis dengan performa tinggi namun menjamin keamanan memori 100% tanpa garbage collector.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Sistem Operasi, Infrastruktur Cloud, WebAssembly, Blockchain (Solana), dan Game Engine modern.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Cargo, Tokio, Serde, Actix, Bevy</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">fn main() {
+    println!("Hello World");
+}</pre>
+      
+                    <a href="https://github.com/topics/rust" target="_blank" class="link-repo" style="color: #0A9396;">Kunjungi Repositori Komunitas (GitHub) &rarr;</a>
+                  </div>
+                </div>
+  
+                <!-- 5. C++ CARD -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-cpp">
+                    <div>
+                      <h4>C++</h4>
+                      <span class="info-meta">Dibuat oleh Bjarne Stroustrup (1985)</span>
+                    </div>
+                    <span class="badge-level">Mid Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan sebagai peningkatan dari bahasa C dengan menambahkan fitur Class/Objek agar bisa menangani proyek perangkat lunak berskala besar.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Game Engine (Unreal Engine), Perangkat Lunak Grafik 3D, Sistem Robotik, Browser Web, dan Sistem Komputasi Tinggi.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Vcpkg, Boost, Qt, OpenGL, Unreal SDK</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello World";
+    return 0;
+}</pre>
+      
+                    <a href="https://github.com/topics/c-plus-plus" target="_blank" class="link-repo" style="color: #9B2226;">Kunjungi Repositori Komunitas (GitHub) &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- 6. ASSEMBLY CARD (LOW LEVEL) -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-assembly">
+                    <div>
+                      <h4>Assembly</h4>
+                      <span class="info-meta">Dibuat oleh Kathleen Booth (1947)</span>
+                    </div>
+                    <span class="badge-level">Low Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Diciptakan untuk menggantikan penulisan kode mesin (biner) yang sangat sulit dipahami manusia, dengan mengubah deretan angka tersebut menjadi simbol teks pendek (mnemonik) seperti MOV, ADD, atau JMP.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Pembuatan sistem operasi tingkat paling dasar (kernel), driver perangkat keras, reverse engineering malware, dan optimasi performa maksimal pada mikroprosesor.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Tidak memiliki package manager. Menggunakan Assembler seperti NASM, MASM, atau GAS.</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">section .data
+    msg db 'Hello World', 0xa
+
+section .text
+    global _start
+_start:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg
+    mov edx, 12
+    int 0x80</pre>
+      
+                    <a href="https://github.com/topics/assembly-language" target="_blank" class="link-repo" style="color: #4A4A4A;">Kunjungi Repositori Assembler Komunitas &rarr;</a>
+                  </div>
+                </div>
+
+                <!-- 7. MACHINE CODE CARD (PURE HARDWARE) -->
+                <div class="pustaka-card">
+                  <div class="pustaka-header bg-mccd">
+                    <div>
+                      <h4>Machine Code (Kode Mesin)</h4>
+                      <span class="info-meta">Bahasa Asli Komputer (Sejak Awal Komputasi)</span>
+                    </div>
+                    <span class="badge-level">Lowest Level</span>
+                  </div>
+                  <div class="pustaka-body">
+                    <div class="label-sub">Mengapa Diciptakan:</div>
+                    <p class="pustaka-desc">Ini adalah bahasa alami dari sirkuit elektronik komputer. Sirkuit digital CPU hanya mengenal kondisi "On" (ada arus listrik) dan "Off" (tidak ada arus), yang diwakili oleh angka 1 dan 0.</p>
+      
+                    <div class="label-sub">Fungsi Pembuatan (Sangat Bagus Untuk):</div>
+                    <p class="pustaka-desc">Satu-satunya kode yang dieksekusi langsung oleh arsitektur CPU tanpa perlu proses penerjemahan atau kompilasi lagi.</p>
+      
+                    <div class="label-sub">Pustaka (Libraries) / Manager:</div>
+                    <div class="box-pustaka">Murni instruksi mentah hardware. Tidak ada library atau pengelola paket eksternal.</div>
+
+                    <div class="label-sub">Contoh Kode (Hello World dalam Heksadesimal):</div>
+                    <pre style="border-radius: 4px; margin-top: 5px;">B8 04 00 00 00 BB 01 00 00 00 B9 ... (Deret biner/hex fisik CPU)</pre>
+      
+                    <span class="link-repo" style="border-bottom: none; color: #4F3D28;">Tidak ada repositori kode terpusat (Arsitektur Hardware)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MODUL 2: DUKUNGAN TOOLS & SOFTWARE (MODUL BARU) -->
+              <div id="tools-software" class="lang-content">
+                <h3>Perangkat Lunak & Ekstensi Koding</h3>
+                <div class="badge">Development Environment</div>
+                <p>Rekomendasi perangkat lunak standar industri untuk mulai menulis dan mengeksekusi kode program:</p>
+
+                <!-- KATEGORI 1: EDITOR UTAMA & FOSS ALTERNATIF -->
+                <div class="section-sub">1. Kode Editor</div>
+                <ul>
+                    <li><strong>VSCode (Standar):</strong> Paling populer dan kaya fitur. <br><a href="https://visualstudio.com" target="_blank" style="color: #7351EA;">Unduh VSCode</a></li><br>
+                    <li><strong>VSCodium (FOSS & Ringan):</strong> Versi 100% open-source dari VS Code. Tanpa pelacak telemetri sehingga jauh lebih enteng. <br> <a href="https://vscodium.com" target="_blank" style="color: #2E71C2;">Unduh VSCodium</a></li>
+                </ul>
+
+                <!-- KATEGORI 2: RUNTIME -->
+                <div class="section-sub">2. Interpreter & Runtime Inti</div>
+                <p>Mesin penerjemah kode agar dapat diproses langsung oleh sistem operasi:</p>
+                <ul>
+                    <li><strong>Python Runtime:</strong> Mesin penerjemah file berkstensi <code>.py</code>. <br><a href="https://python.org" target="_blank" style="color: #FFD857;">Unduh Python</a></li><br>
+                    <li><strong>Node.js:</strong> Runtime untuk mengeksekusi file <code>.js</code> di komputer tanpa web browser. <br><a href="https://nodejs.org" target="_blank" style="color: #86B76E;">Unduh Node.js</a></li>
+                </ul>
+
+                <!-- KATEGORI 3: EKSTENSI DENGAN 3 SUMBER MARKETPLACE -->
+                <div class="section-sub">3. Ekstensi Teks Editor Wajib</div>
+                <p>Alat bantu auto-complete, merapikan struktur teks, dan mendeteksi kesalahan ketik otomatis di berbagai perangkat:</p>
+  
+                <!-- 1. Python Extension -->
+                <div class="pustaka-card" style="margin-top: 10px; margin-bottom: 10px;">
+                    <div class="pustaka-body" style="padding: 12px 15px;">
+                        <span style="font-weight: bold; color: #FFD857;">• Python <span style="color: #4685B8;">Extension</span></span>
+                        <p class="pustaka-desc" style="font-size: 0.9rem; margin-top: 3px; margin-bottom: 8px;">Dukungan IntelliSense koding, pemformatan otomatis, dan debugging file Python.</p>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" class="link-repo" style="color: #7351EA;">VSCode Marketplace Source &rarr;</a><br>
+                        <a href="https://open-vsx.org/extension/ms-python/python" target="_blank" class="link-repo" style="color: #C060ED;">OpenVSX Marketplace Source &rarr;</a><br>
+                        <a href="https://acode.app/plugin/acode.plugin.python" target="_blank" class="link-repo" style="color: #3399FE;">Acode Marketplace Source &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 2. JavaScript / Web Extension -->
+                <div class="pustaka-card" style="margin-top: 10px; margin-bottom: 10px;">
+                    <div class="pustaka-body" style="padding: 12px 15px;">
+                        <span style="font-weight: bold; color: #B9E55B;">• Prettier <span style="color: #E5E55B;"> - Code</span> <span style="color: #D65555;"> Formatter</span></span>
+                        <p class="pustaka-desc" style="font-size: 0.9rem; margin-top: 3px; margin-bottom: 8px;">Merapikan jarak spasi, tanda petik, lekukan, dan struktur baris kode secara otomatis saat file disimpan.</p>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" class="link-repo" style="color: #7351EA;">VSCode Marketplace Source &rarr;</a><br>
+                        <a href="https://open-vsx.org/extension/esbenp/prettier-vscode" target="_blank" class="link-repo" style="color: #C060ED;">OpenVSX Marketplace Source &rarr;</a><br>
+                        <a href="https://acode.app/plugin/acode.plugin.prettier" target="_blank" class="link-repo" style="color: #3399FE;">Acode Marketplace Source &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 3. C/C++ Extension -->
+                <div class="pustaka-card" style="margin-top: 10px; margin-bottom: 10px;">
+                    <div class="pustaka-body" style="padding: 12px 15px;">
+                        <span style="font-weight: bold; color: #649BD3;">• C/C++ Extension <span style="color: #014284;"> (by Microsoft)</span></span>
+                        <p class="pustaka-desc" style="font-size: 0.9rem; margin-top: 3px; margin-bottom: 8px;">Fitur penyorotan sintaksis koding (*syntax highlighting*), navigasi fungsi, dan auto-complete cerdas untuk bahasa C/C++.</p>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank" class="link-repo" style="color: #7351EA;">VSCode Marketplace Source &rarr;</a><br>
+                        <a href="https://open-vsx.org/extension/vscode/cpp" target="_blank" class="link-repo" style="color: #C060ED;">OpenVSX Marketplace Source &rarr;</a><br>
+                        <a href="https://acode.app/plugin/plugin.acode.corcpptools/description" target="_blank" class="link-repo" style="color: #3399FE;">Acode Marketplace Source &rarr;</a>
+                    </div>
+                </div>
+
+
+                <!-- KATEGORI 4: MOBILE & EMBEDDED -->
+                <div class="section-sub">4. Koding di Perangkat Mobile / Android</div>
+                <p>Solusi belajar koding gratis, aman, dan sangat ringan langsung menggunakan prangkat Android:</p>
+                <ul>
+                    <li><strong>Acode Editor:</strong> Aplikasi teks editor open-source yang sangat lancar untuk koding web (HTML/CSS/JS). <br><a href="https://acode.app/" target="_blank" style="color: #3399FE;">Unduh Acode</a></li><br>
+                    <li><strong>Termux Terminal:</strong> Emulator Linux murni di Android untuk menginstal paket Git, kompiler Python, atau C++. <br><a href="https://f-droid.org/id/packages/com.termux/" target="_blank" style="color: #1976D3;">F-Droid Source</a> / <a href="https://github.com/termux/termux-app" target="_blank" style="color: #FFFFFF;">Github Source</a></li>
+                </ul>
+              </div>
+                
+              <!-- KONTEN MODUL 3: EKOSISTEM BAHASA PEMROGRAMAN -->
+               <div id="ekosistem" class="lang-content">
+                 <h3>Ekosistem Pemrograman</h3>
+                 <div class="badge">Infrastruktur & Arsitektur</div>
+                 <p>Memahami bagaimana bahasa pemrograman bekerja di belakang layar bersama lingkungannya:</p>
+              
+                <div class="section-sub">Compiler vs Interpreter</div>
+                <ul>
+                    <li><strong>Compiler:</strong><br> Menerjemahkan seluruh kode sumber sekaligus menjadi file biner siap pakai sebelum dijalankan (Contoh: C++, Go, Rust).</li><br>
+                    <li><strong>Interpreter:</strong><br> Menerjemahkan dan mengeksekusi kode baris demi baris secara langsung saat program berjalan (Contoh: Python, Ruby).</li>
+                </ul>
+
+                <div class="section-sub">Runtime Environment</div>
+                <p>Sistem perangkat lunak yang dirancang untuk memfasilitasi eksekusi program. Contohnya adalah <strong>V8 Engine / Node.js</strong> untuk JavaScript atau <strong>JVM</strong> untuk Java.</p>
+
+                <div class="section-sub">Package Manager</div>
+                 <p>Alat untuk mengelola, menginstal, dan memperbarui pustaka eksternal secara otomatis.</p>
+                 <ul>
+                    <li><strong>pip</strong> (Ekosistem Python)</li>
+                    <li><strong>npm / yarn</strong> (Ekosistem JavaScript)</li>
+                    <li><strong>Cargo</strong> (Ekosistem Rust)</li>
+                 </ul>
+                   <!-- TAMBAHAN KOMPONEN 3: API -->
+                   <div class="section-sub">API (Application Programming Interface)</div>
+                   <p>Jembatan komunikasi yang memungkinkan satu aplikasi atau sistem bertukar data dengan aplikasi lainnya secara aman.</p>
+                    <ul>
+                        <li><strong>RESTful API / GraphQL:</strong><br> Protokol standar yang paling sering digunakan untuk mengirim data (biasanya dalam format JSON) antara sisi frontend (aplikasi/web) dan backend (server).</li>
+                    </ul>
+
+                   <!-- TAMBAHAN KOMPONEN 4: DATABASE -->
+                    <div class="section-sub">Database (Sistem Penyimpanan Data)</div>
+                   <p>Tempat penyimpanan data aplikasi secara terstruktur, permanen, dan aman di sisi server.</p>
+                   <ul>
+                        <li><strong>Relational (SQL):</strong><br> Menyimpan data dalam bentuk tabel kaku yang saling berhubungan. Sangat aman untuk transaksi keuangan. (Contoh: MySQL, PostgreSQL).</li><br>
+                        <li><strong>Non-Relational (NoSQL):</strong><br> Menyimpan data dalam bentuk dokumen fleksibel mirip JSON. Sangat cepat untuk data berskala besar. (Contoh: MongoDB, Redis).</li>
+                   </ul>
+
+                    <!-- TAMBAHAN KOMPONEN 5: ENVIRONMENT DEVELOPMENT -->
+                    <div class="section-sub">Lingkungan Pengembangan (Environment)</div>
+                   <p>Pemisahan ruang kerja koding untuk menjaga keamanan sistem agar eror saat koding tidak merusak aplikasi yang sedang diakses pengguna asli.</p>
+                   <ul>
+                        <li><strong>Localhost / Development:</strong><br> Lingkungan uji coba di dalam komputer pribadi developer sendiri untuk menulis dan mengetes fitur baru.</li><br>
+                        <li><strong>Production:</strong><br> Lingkungan server asli yang sudah terhubung dengan internet luas dan diakses langsung oleh pengguna atau pelanggan publik.</li>
+                    </ul>
+              </div>
+
+              <!-- KONTEN MODUL 4: LOGIKA DASAR PEMROGRAMAN -->
+              <div id="logika" class="lang-content">
+                <h3>Rumus & Perbandingan Logika Dasar</h3>
+                <div class="badge">Algoritma & Struktur Kontrol</div>
+                <p>Meskipun bahasanya berbeda, logika dasarnya tetaplah sama. Bandingkan langsung sintaksis dasar di bawah ini.</p>
+
+                <!-- KONSEP 1: VARIABEL -->
+                <div class="section-sub">Menyimpan Data (Variabel)</div>
+                <p>Menciptakan ruang penyimpanan data di dalam memori komputer.</p>
+  
+                <!-- Python -->
+                <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+                <pre>nama = "Andi"
+umur = 25</pre>
+
+                <!-- JavaScript -->
+                <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+                <pre>let nama = "Andi";
+let umur = 25;</pre>
+
+                <!-- C++ -->
+                <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+                <pre>string nama = "Andi";
+int umur = 25;</pre>
+
+
+                <!-- KONSEP 2: IF-ELSE -->
+                <div class="section-sub">Pemilihan Kondisi (If-Else)</div>
+                <p>Membuat keputusan berdasarkan kondisi yang dipenuhi.</p>
+
+                <!-- Python -->
+                <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+                <pre>if nilai >= 75:
+    print("Lulus!")
+else:
+    print("Mengulang..")</pre>
+
+                <!-- JavaScript -->
+                <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+                <pre>if (nilai >= 75) {
+    console.log("Lulus!");
+} else {
+    console.log("Mengulang..");
+}</pre>
+
+                <!-- C++ -->
+                <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+                <pre>if (nilai >= 75) {
+    std::cout << "Lulus!";
+} else {
+    std::cout << "Mengulang..";
+}</pre>
+
+
+                <!-- KONSEP 3: LOOPING -->
+                <div class="section-sub">Perulangan (Looping)</div>
+                <p>Menjalankan perintah yang sama berulang kali sampai batas tertentu.</p>
+
+                <!-- Python -->
+                <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+                <pre>for i in range(1, 4):
+    print("Langkah :", i)</pre>
+
+                <!-- JavaScript -->
+                <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+                <pre>for (let i = 1; i <= 3; i++) {
+    console.log("Langkah : " + i);
+}</pre>
+
+                <!-- C++ -->
+                <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+                <pre>for (int i = 1; i <= 3; i++) {
+    std::cout << "Langkah : " << i << "\n";
+}</pre>
+
+
+              <!-- TAMBAHAN KONSEP 4: FUNGSI (FUNCTION) -->
+              <div class="section-sub">Membuat Fungsi (Function)</div>
+              <p>Membungkus blok kode agar bisa digunakan berulang kali dan dapat mengembalikan nilai.</p>
+
+              <!-- Python -->
+              <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+              <pre>def tambah(a, b):
+    return a + b
+
+hasil = tambah(5, 3)
+print(hasil) # Output: 8</pre>
+
+              <!-- JavaScript -->
+              <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+              <pre>function tambah(a, b) {
+    return a + b;
+}
+
+let hasil = tambah(5, 3);
+console.log(hasil); // Output: 8</pre>
+
+              <!-- C++ -->
+              <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+              <pre>int tambah(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int hasil = tambah(5, 3);
+    std::cout << hasil; // Output: 8
+    return 0;
+}</pre>
+
+
+              <!-- TAMBAHAN KONSEP 5: ARRAY / LIST -->
+              <div class="section-sub">Kumpulan Data (Array / List)</div>
+              <p>Menyimpan banyak data di dalam satu nama variabel tunggal menggunakan indeks urutan.</p>
+
+              <!-- Python -->
+              <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+              <pre># Membuat list buah
+buah = ["Apel", "Jeruk", "Mangga"]
+
+# Mengambil data pertama (indeks 0)
+print(buah[0]) # Output: Apel</pre>
+
+              <!-- JavaScript -->
+              <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+              <pre>// Membuat array buah
+let buah = ["Apel", "Jeruk", "Mangga"];
+
+// Mengambil data pertama (indeks 0)
+console.log(buah[0]); // Output: Apel</pre>
+
+              <!-- C++ -->
+              <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+              <pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main() {
+    // Membuat array/vector buah
+    std::vector&lt;std::string&gt; buah = {"Apel", "Jeruk", "Mangga"};
+
+    // Mengambil data pertama (indeks 0)
+    std::cout << buah[0]; // Output: Apel
+    return 0;
+}</pre>
+
+
+              <!-- TAMBAHAN KONSEP 6: OPERATOR LOGIKA -->
+              <div class="section-sub">Operator Logika (AND / OR)</div>
+              <p>Menggabungkan dua kondisi atau lebih untuk menghasilkan satu keputusan logis.</p>
+
+              <!-- Python -->
+              <div class="code-box-header"><span class="lang-label">Python</span><span class="ext-label">.py</span></div>
+              <pre># Menggunakan kata kunci 'and' dan 'or'
+if nilai >= 75 and kehadiran >= 80:
+    print("Lulus Baik")
+
+if status == "admin" or status == "owner":
+    print("Akses Diterima")</pre>
+
+              <!-- JavaScript -->
+              <div class="code-box-header"><span class="lang-label">JavaScript</span><span class="ext-label">.js</span></div>
+              <pre>// Menggunakan operator '&&' (AND) dan '||' (OR)
+if (nilai >= 75 && kehadiran >= 80) {
+    console.log("Lulus Baik");
+}
+
+if (status === "admin" || status === "owner") {
+    console.log("Akses Diterima");
+}</pre>
+
+              <!-- C++ -->
+              <div class="code-box-header"><span class="lang-label">C++</span><span class="ext-label">.cpp</span></div>
+              <pre>// Sama seperti JavaScript, menggunakan '&&' dan '||'
+if (nilai >= 75 && kehadiran >= 80) {
+    std::cout << "Lulus Baik";
+}
+
+if (status == "admin" || status == "owner") {
+    std::cout << "Akses Diterima";
+}</pre>
+              </div>
+
+              <!-- KONTEN MODUL 5: ALUR GIT / GITHUB & KONTRIBUSI -->
+              <div id="git-github" class="lang-content">
+                <h3>Panduan Git & Kontribusi Proyek</h3>
+                <div class="badge">Version Control System</div>
+                <p>Bagaimana para developer profesional bekerja bersama? Mereka menggunakan kontrol versi bernama <strong>"Git"</strong> serta wadah kolaborasi (seperti GitHub/GitLab).</p>
+
+              <div class="section-sub">5 Langkah Alur Koding Tim (Git)</div>
+
+              <!-- Langkah 1 -->
+               <div class="git-card">
+                 <div class="step-number">1</div>
+                   <div class="step-body">
+                    <div class="step-title">Clone (Ambil Kode)</div>
+                  <p class="step-desc">Menyalin repositori/proyek koding dari GitHub ke komputer lokalmu.</p>
+                    <div class="code-box-header"><span class="lang-label">Git</span><span class="ext-label">Terminal</span></div>
+                    <pre>git clone [URL-GITHUB]</pre>
+                  </div>
+                </div>
+
+              <!-- Langkah 2 -->
+              <div class="git-card">
+                <div class="step-number">2</div>
+                <div class="step-body">
+                  <div class="step-title">Branching (Buat Cabang Kerja)</div>
+                  <p class="step-desc">Membuat cabang koding baru agar fitur yang kamu buat aman dan tidak merusak kode utama proyek.</p>
+                  <div class="code-box-header"><span class="lang-label">Git</span><span class="ext-label">Terminal</span></div>
+                  <pre>git checkout -b fitur-baru</pre>
+                </div>
+              </div>
+
+              <!-- Langkah 3 -->
+              <div class="git-card">
+                <div class="step-number">3</div>
+                <div class="step-body">
+                  <div class="step-title">Add & Commit (Simpan Perubahan)</div>
+                  <p class="step-desc">Menandai dan menyimpan riwayat kodingmu di komputer lokal sebelum dikirim.</p>
+                  <div class="code-box-header"><span class="lang-label">Git</span><span class="ext-label">Terminal</span></div>
+                  <pre>git add .&#10;git commit -m "fitur baru selesai"</pre>
+                </div>
+              </div>
+
+              <!-- Langkah 4 -->
+              <div class="git-card">
+                <div class="step-number">4</div>
+                <div class="step-body">
+                  <div class="step-title">Push (Unggah Hasil)</div>
+                  <p class="step-desc">Mengunggah hasil pekerjaan koding dari komputer lokalmu kembali ke GitHub secara online.</p>
+                  <div class="code-box-header"><span class="lang-label">Git</span><span class="ext-label">Terminal</span></div>
+                  <pre>git push origin fitur-baru</pre>
+                </div>
+              </div>
+
+              <!-- Langkah 5 -->
+              <div class="git-card">
+                <div class="step-number">5</div>
+                <div class="step-body">
+                  <div class="step-title">Pull Request (Penggabungan)</div>
+                  <p class="step-desc">Meminta ketua tim atau pemilik proyek utama di GitHub untuk meninjau dan menggabungkan kodemu ke proyek utama.</p>
+                </div>
+              </div>
+
+                <!-- BAGIAN TEMPAT BERBAGI LIBRARY -->
+                <div class="section-sub">Tempat Berbagi & Mencari Library</div>
+                <p>Developer yang hebat tidak membuat semuanya dari nol. Mereka menggunakan kode buatan komunitas (libraries/package) melalui layanan berikut:</p>
+
+                <div class="library-grid">
+                  <!-- Card 1: NPM -->
+                  <div class="library-card">
+                    <div class="library-card-header">
+            <!-- Silakan ganti nilai di dalam src="" dengan URL gambar ikon Anda -->
+                      <img class="library-logo" src="Npm-logo.png" alt="NPM Logo">
+                      <a href="https://npmjs.com" target="_blank" class="library-title">npmjs.com </a>
+                    </div>
+                    <p class="library-desc">Pustaka terbesar untuk JavaScript dan pengembangan web frontend/backend.</p>
+                  </div>
+
+                  <!-- Card 2: PyPI -->
+                  <div class="library-card">
+                    <div class="library-card-header">
+                      <img class="library-logo" src="PyPI_logo.png" alt="PyPI Logo">
+                      <a href="https://pypi.org" target="_blank" class="library-title">PyPI (pypi.org) </a>
+                    </div>
+                    <p class="library-desc">Rumah bagi semua library Python untuk AI, data science, dan scripting.</p>
+                  </div>
+
+                  <!-- Card 3: Maven Central -->
+                  <div class="library-card">
+                    <div class="library-card-header">
+                      <img class="library-logo" src="Apache_Maven_logo.png" alt="Maven Logo">
+                      <a href="https://maven.org" target="_blank" class="library-title">Maven Central </a>
+                    </div>
+                    <p class="library-desc">Tempat mencari dependensi terstruktur untuk pengembangan Java enterprise.</p>
+                  </div>
+
+                  <!-- Card 4: Crates.io -->
+                  <div class="library-card">
+                    <div class="library-card-header">
+                      <img class="library-logo" src="crates_io_logo.png" alt="Crates Logo">
+                      <a href="https://crates.io" target="_blank" class="library-title">Crates.io </a>
+                    </div>
+                    <p class="library-desc">Situs resmi manajemen paket handal berkinerja tinggi milik Rust.</p>
+                  </div>
+                </div>
+
+                <div class="tips-box">
+                  <div class="tips-title"> #Tips :</div>
+    Buatlah akun <strong>"GitHub"</strong> sesegera mungkin. Portofolio koding terbaikmu didasarkan pada seberapa rapi dan konsisten kontribusimu di sana!
+                  </div>
+                </div>
+              </main>
+            </div> 
+          <!-- FOOTER MENGIKUTI CONTAINER -->
+          <footer id="footer"> © 2026 Cadmipote & S.M.A </footer>
+       </div> 
+    </body>
+    <script>
+         // Fungsi dasar untuk kontrol menu navigasi tab utama
+         function bukaBahasa(evt, namaBahasa) {
+             var konten = document.getElementsByClassName("lang-content");
+             for (var i = 0; i < konten.length; i++) {
+                 konten[i].className = konten[i].className.replace(" active", "");
+              }
+
+             var tombol = document.getElementsByClassName("tab-btn");
+             for (var i = 0; i < tombol.length; i++) {
+                 tombol[i].className = tombol[i].className.replace(" active", "");
+              } 
+
+             document.getElementById(namaBahasa).className += " active";
+             evt.currentTarget.className += " active";
+          }
+    </script>
+  </html>
