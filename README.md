@@ -1,4 +1,4 @@
-![Cadmipote](image-2.png)
+![Dark-Tropical-Coral](image-2.png)
 
 
 Webpage Panduan Pembelajaran Kode Bahasa Pemrograman
